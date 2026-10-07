@@ -74,7 +74,7 @@ export class EmailService {
 
     const modifiedHtml = `
     <div style="
-        background: linear-gradient(to bottom right, #e6f2ff, #f0e6ff);
+        background: linear-gradient(to bottom right, #e8ecfd, #fff1e8);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -94,7 +94,7 @@ export class EmailService {
                 font-weight: bold;
                 margin-bottom: 1.5rem;
                 text-align: left;
-                color: #1f2937;
+                color: #1a1a2e;
             ">${subject}</h1>
             
             <div style="
@@ -107,14 +107,14 @@ export class EmailService {
             <div style="
                 display: flex;
                 align-items: center;
-                border-top: 1px solid #e5e7eb;
+                border-top: 1px solid #ff7a2f;
                 padding-top: 1.5rem;
             ">
                 <div>
                     <h2 style="
                         font-size: 1.25rem;
                         font-weight: 600;
-                        color: #1f2937;
+                        color: #1a1a2e;
                         margin: 0;
                     ">${process.env.EMAIL_FROM_NAME}</h2>
                     <div style="font-size: 12px">

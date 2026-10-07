@@ -34,7 +34,7 @@ const jakartaSans = Plus_Jakarta_Sans({
 export default async function AppLayout({ children }: { children: ReactNode }) {
   const cookieStore = await cookies();
   const language = cookieStore.get(cookieName)?.value || fallbackLng;
-  const Plausible = !!process.env.STRIPE_PUBLISHABLE_KEY
+  const Plausible = !!process.env.PLAUSIBLE_DOMAIN
     ? PlausibleProvider
     : Fragment;
   return (
@@ -44,7 +44,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
         {!!process.env.DATAFAST_WEBSITE_ID && (
           <Script
             data-website-id={process.env.DATAFAST_WEBSITE_ID}
-            data-domain="postiz.com"
+            data-domain={process.env.DATAFAST_DOMAIN}
             src="https://datafa.st/js/script.js"
             strategy="afterInteractive"
           />
@@ -88,6 +88,13 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
           googleAdsTrialTracking={process.env.NEXT_PUBLIC_TRACKING_TRIAL}
           language={language}
           recaptchaSiteKey={process.env.RECAPTCHA_SITE_KEY || ''}
+          sourceCodeUrl={
+            process.env.NEXT_PUBLIC_SOURCE_CODE_URL ||
+            'https://github.com/gitroomhq/postiz-app'
+          }
+          termsUrl={process.env.NEXT_PUBLIC_TERMS_URL || ''}
+          privacyUrl={process.env.NEXT_PUBLIC_PRIVACY_URL || ''}
+          tutorialVideoUrl={process.env.NEXT_PUBLIC_TUTORIAL_VIDEO_URL || ''}
           mediaProcessing={
             process.env.STORAGE_PROVIDER === 'cloudflare' &&
             !!process.env.RUNPOD_API_KEY &&
@@ -108,9 +115,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
             <DubAnalytics />
             <FacebookComponent />
             <GoogleTagManagerComponent gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
-            <Plausible
-              domain={!!process.env.IS_GENERAL ? 'postiz.com' : 'gitroom.com'}
-            >
+            <Plausible domain={process.env.PLAUSIBLE_DOMAIN!}>
               <PHProvider
                 phkey={process.env.NEXT_PUBLIC_POSTHOG_KEY}
                 host={process.env.NEXT_PUBLIC_POSTHOG_HOST}

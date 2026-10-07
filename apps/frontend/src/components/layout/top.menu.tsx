@@ -19,7 +19,7 @@ interface MenuItemInterface {
 }
 
 export const useMenuItem = () => {
-  const { isGeneral } = useVariables();
+  const { isGeneral, sourceCodeUrl } = useVariables();
   const t = useT();
   const { openModal } = useModals();
 
@@ -368,6 +368,30 @@ export const useMenuItem = () => {
         </svg>
       ),
       path: '/settings',
+      role: ['ADMIN', 'USER', 'SUPERADMIN'],
+    },
+    // AGPL-3.0 section 13: offer the source code to every network user
+    {
+      name: t('source_code', 'Source code'),
+      icon: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="20"
+          height="21"
+          viewBox="0 0 20 21"
+          fill="none"
+        >
+          <path
+            d="M6.66667 6.33366L2.5 10.5003L6.66667 14.667M13.3333 6.33366L17.5 10.5003L13.3333 14.667M11.6667 3.83366L8.33333 17.167"
+            stroke="currentColor"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      ),
+      path: sourceCodeUrl!,
+      hide: !sourceCodeUrl,
       role: ['ADMIN', 'USER', 'SUPERADMIN'],
     },
   ] satisfies MenuItemInterface[] as MenuItemInterface[];

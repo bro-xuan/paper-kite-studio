@@ -136,7 +136,7 @@ export class OrganizationService {
       body.email
     );
     if (!users.length) {
-      throw new HttpException('No Postiz account found for this email', 400);
+      throw new HttpException('No Paper Kite Studio account found for this email', 400);
     }
 
     if (users.length > 1) {
