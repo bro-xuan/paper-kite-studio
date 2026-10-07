@@ -90,7 +90,7 @@ export default async function AppLayout({ children }: { children: ReactNode }) {
           recaptchaSiteKey={process.env.RECAPTCHA_SITE_KEY || ''}
           sourceCodeUrl={
             process.env.NEXT_PUBLIC_SOURCE_CODE_URL ||
-            'https://github.com/gitroomhq/postiz-app'
+            'https://github.com/bro-xuan/paper-kite-studio'
           }
           termsUrl={process.env.NEXT_PUBLIC_TERMS_URL || ''}
           privacyUrl={process.env.NEXT_PUBLIC_PRIVACY_URL || ''}

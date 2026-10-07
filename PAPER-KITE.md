@@ -9,9 +9,9 @@ It is a fork of [Postiz](https://github.com/gitroomhq/postiz-app) (AGPL-3.0).
 Because of the AGPL, the code we deploy must stay open source and be offered to
 every user. See [NOTICE.md](./NOTICE.md) for attribution and the list of changes.
 
-Branch: `paper-kite`. Remote `upstream` points to gitroomhq/postiz-app. There is
-no `origin` yet: create the public repo first, then
-`git remote add origin <url>` and set `NEXT_PUBLIC_SOURCE_CODE_URL` to it.
+Public source: https://github.com/bro-xuan/paper-kite-studio (`origin`, branch
+`main`). Remote `upstream` points to gitroomhq/postiz-app. Push to `origin`
+before every deploy so the published source matches what users run.
 
 ## Run it locally
 
@@ -52,7 +52,7 @@ Added by Paper Kite:
 
 | Var | Purpose |
 | --- | --- |
-| `NEXT_PUBLIC_SOURCE_CODE_URL` | **Required in production (AGPL section 13).** Target of the "Source code" menu item. Falls back to the upstream Postiz repo, which is **not** enough once we deploy modified code. |
+| `NEXT_PUBLIC_SOURCE_CODE_URL` | **Required in production (AGPL section 13).** Target of the "Source code" menu item. Falls back to https://github.com/bro-xuan/paper-kite-studio. Keep that repo up to date with whatever is deployed. |
 | `NEXT_PUBLIC_TERMS_URL`, `NEXT_PUBLIC_PRIVACY_URL` | Terms/privacy links on the sign-up form. The sentence is hidden until both are set. Set them before opening sign-up to clients. |
 | `NEXT_PUBLIC_TUTORIAL_VIDEO_URL` | Embed URL for the onboarding video. If unset, a "your Paper Kite team will walk you through it" note is shown. |
 | `PLAUSIBLE_DOMAIN`, `DATAFAST_DOMAIN` | Optional analytics. Unset means no Plausible and no Datafast domain. |
